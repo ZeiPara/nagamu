@@ -57,9 +57,23 @@
         font-family: Arial, sans-serif;
       }
 
-      @media (max-width: 600px) {
+      /* 共通の高さ */
+      .HeaderLogo {
+        height: 40px;
+        width: auto;
+      }
+
+      /* スマホ縦向きのとき */
+      @media (max-width: 600px) and (orientation: portrait) {
         .HeaderLogo {
-          height: 50px; /* スマホ用に少し大きめ */
+          height: 50px;
+        }
+      }
+
+      /* スマホ横向きのとき */
+      @media (max-width: 900px) and (orientation: landscape) {
+        .HeaderLogo {
+          height: 35px;
         }
       }
     </style>
