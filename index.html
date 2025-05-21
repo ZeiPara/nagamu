@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width"/>
     <title>永 無のサイト</title>
     <link rel="icon" href="https://nagamu.f5.si/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://nagamu.f5.si/apple-touch-icon-180x180.png">>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nagamu.f5.si/apple-touch-icon-180x180.png">
     <style>
       /* ヘッダーのスタイル */
       .Header {
@@ -66,8 +66,14 @@
 
       .menubutton {
         position: fixed;
-        top: 0;
-        left: 0;
+        top: 14px; /* 配置を調整 */
+        left: 10px; /* 配置を調整 */
+        z-index: 1000; /* ボタンがヘッダー要素の上に表示されるようにする */
+      }
+
+      /* 最初はキャンセルボタンを非表示にする */
+      #cancel {
+        display: none;
       }
 
       /* スマホ縦向きのとき */
@@ -75,11 +81,23 @@
         .HeaderLogo {
           height: 50px;
         }
+        .HeaderText {
+            margin-left: 100px; /* 小さい画面でのテキスト位置を調整 */
+            font-size: 16px; /* 小さい画面でのフォントサイズを調整 */
+        }
+        .menubutton {
+            top: 5px; /* 小さい画面でのボタン位置を調整 */
+            left: 5px; /* 小さい画面でのボタン位置を調整 */
+        }
       }
 
       @media (max-width: 768px) and (orientation: landscape) {
         .HeaderLogo {
           height: 50px;
+        }
+        .HeaderText {
+            margin-left: 100px;
+            font-size: 18px;
         }
       }
 
@@ -88,31 +106,46 @@
         .HeaderLogo {
           height: 50px;
         }
+        .HeaderText {
+            margin-left: 100px;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="menubutton"><button type=”button” onclick=”menu()” id="menu"><img src="menu.svg" width="32" height="32" display="block"></button></div>
-    <div class="menubutton"><button type=”button” onclick=”cancel()” id="cancel"><img src="cancel.svg" width="32" height="32" display="none"></button></div>
-    <div class="HeaderImage"><img src="https://nagamu.f5.si/nagamu-logo.jpeg" height="10px" class="HeaderLogo"></div>
+    <div class="menubutton">
+      <button type="button" onclick="menu()" id="menu">
+        <img src="menu.svg" width="32" height="32">
+      </button>
+    </div>
+    <div class="menubutton">
+      <button type="button" onclick="cancel()" id="cancel">
+        <img src="cancel.svg" width="32" height="32">
+      </button>
+    </div>
+    <div class="HeaderImage">
+      <img src="https://nagamu.f5.si/nagamu-logo.jpeg" height="10px" class="HeaderLogo">
+    </div>
     <div class="Header"></div>
     <div class="HeaderText"><h3><strong>永　無教 公式サイト</strong></h3></div>
     <div class="Contents">
       <h1>永　無教</h1>
+      <p>これはコンテンツの例です。</p>
+      <p>ここにウェブサイトのメインコンテンツが表示されます。</p>
     </div>
     <script>
       function menu() {
-        const menu = getElementById(menu);
-        const cancel = getElementById(cancel);
-        menu.style.display = 'none';
-        cancel.style.display = 'block';
+        const menuButton = document.getElementById('menu');
+        const cancelButton = document.getElementById('cancel');
+        menuButton.style.display = 'none'; // メニューボタンを非表示にする
+        cancelButton.style.display = 'block'; // キャンセルボタンを表示する
       }
 
       function cancel() {
-        const menu = getElementById(menu);
-        const cancel = getElementById(cancel);
-        menu.style.display = 'block';
-        cancel.style.display = 'none';
+        const menuButton = document.getElementById('menu');
+        const cancelButton = document.getElementById('cancel');
+        menuButton.style.display = 'block'; // メニューボタンを表示する
+        cancelButton.style.display = 'none'; // キャンセルボタンを非表示にする
       }
     </script>
   </body>
