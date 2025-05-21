@@ -61,6 +61,13 @@
       .HeaderLogo {
         height: 40px;
         width: auto;
+        margin-left: 100px;
+      }
+
+      .menubutton {
+        position: fixed;
+        top: 0;
+        left: 0;
       }
 
       /* スマホ縦向きのとき */
@@ -79,6 +86,8 @@
     </style>
   </head>
   <body>
+    <div class="menubutton"><button type=”button” onclick=”menu()”><img src="menu.svg" width="32" height="32" display="block"></button></div>
+    <div class="menubutton"><button type=”button” onclick=”menu()”><img src="cancel.svg" width="32" height="32" display="none"></button></div>
     <div class="HeaderImage"><img src="https://nagamu.f5.si/nagamu-logo.jpeg" height="10px" class="HeaderLogo"></div>
     <div class="Header"></div>
     <div class="HeaderText"><h3><strong>永　無教 公式サイト</strong></h3></div>
