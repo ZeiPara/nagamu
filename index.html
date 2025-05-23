@@ -24,6 +24,15 @@
         z-index: 997;
       }
 
+      .sidebar {
+        position: fixed;
+        width: 20%;
+        color: #111111;
+        left: 0;
+        z-index: 990
+        height: 100%;
+      }
+
       .HeaderImage {
         position: fixed;
         top: 0;
@@ -136,6 +145,7 @@
       <p>これはコンテンツの例です。</p>
       <p>ここにウェブサイトのメインコンテンツが表示されます。</p>
     </div>
+    <div class="sidebar"></div>
     <script>
       function menu() {
         const menuButton = document.getElementById('menu');
