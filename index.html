@@ -49,8 +49,124 @@
       }
 
       .HeaderText {
-        margin-top: -10px;
+        top: -10px;
         margin-left: 370px;
         position: fixed;
         top: 0;
         left: 50;
+        height: 60px;
+        padding: 10px;
+        color: #000000; /* ヘッダー内の文字色 */
+        font-size: 20px; /* 文字サイズを調整 */
+        text-align: left; /* 左揃え */
+        z-index: 999;
+      }
+
+      /* コンテンツのスタイル */
+      .Contents {
+        margin-top: 60px; /* ヘッダーの高さ分だけ余白をつける */
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      /* 共通の高さ */
+      .HeaderLogo {
+        height: 60px;
+        width: auto;
+        margin-left: 300px;
+      }
+
+      .menubutton {
+        height: 80px;
+        width: auto;
+        position: fixed;
+        top: 14px; /* 配置を調整 */
+        left: 10px; /* 配置を調整 */
+        z-index: 1200; /* ボタンがヘッダー要素の上に表示されるようにする */
+        border-style: none;
+        padding: 2px;
+        font-family: sans-serif;
+        font-size: 16px;
+        text-align: center;
+        overflow-wrap: anywhere;
+      }
+
+      /* 最初はキャンセルボタンを非表示にする */
+      #cancel {
+        display: none;
+      }
+
+      /* スマホ縦向きのとき */
+      @media (max-width: 600px) and (orientation: portrait) {
+        .HeaderLogo {
+          height: 50px;
+        }
+        .HeaderText {
+            margin-left: 100px; /* 小さい画面でのテキスト位置を調整 */
+            font-size: 16px; /* 小さい画面でのフォントサイズを調整 */
+        }
+        .menubutton {
+            top: 5px; /* 小さい画面でのボタン位置を調整 */
+            left: 5px; /* 小さい画面でのボタン位置を調整 */
+        }
+      }
+
+      @media (max-width: 768px) and (orientation: landscape) {
+        .HeaderLogo {
+          height: 80px;
+        }
+        .HeaderText {
+            margin-left: 100px;
+            font-size: 18px;
+        }
+      }
+
+      /* スマホ横向きのとき */
+      @media (max-width: 900px) and (orientation: landscape) {
+        .HeaderLogo {
+          height: 50px;
+        }
+        .HeaderText {
+            margin-left: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menubutton">
+        <span type="button" onclick="menu()" id="menu">
+        <img src="menu.svg" width="48" height="48">
+      </span>
+    </div>
+    <div class="menubutton">
+      <span type="button" onclick="cancel()" id="cancel">
+        <img src="cancel.svg" width="48" height="48">
+      </span>
+    </div>
+    <div class="HeaderImage">
+      <img src="https://nagamu.f5.si/nagamu-logo.jpeg" height="10px" class="HeaderLogo">
+    </div>
+    <div class="Header"></div>
+    <div class="HeaderText"><h3><strong>永　無教 公式サイト</strong></h3></div>
+    <div class="Contents">
+      <h1>永　無教</h1>
+      <p>これはコンテンツの例です。</p>
+      <p>ここにウェブサイトのメインコンテンツが表示されます。</p>
+    </div><aside class="sidebar"></aside>
+    <script>
+      function menu() {
+        const menuButton = document.getElementById('menu');
+        const cancelButton = document.getElementById('cancel');
+        menuButton.style.display = 'none'; // メニューボタンを非表示にする
+        cancelButton.style.display = 'block'; // キャンセルボタンを表示する
+      }
+
+      function cancel() {
+        const menuButton = document.getElementById('menu');
+        const cancelButton = document.getElementById('cancel');
+        menuButton.style.display = 'block'; // メニューボタンを表示する
+        cancelButton.style.display = 'none'; // キャンセルボタンを非表示にする
+      }
+    </script>
+  </body>
+</html>
