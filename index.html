@@ -160,26 +160,30 @@
       <p>ここにウェブサイトのメインコンテンツが表示されます。</p>
     </div><aside class="sidebar"></aside>
     <script>
+      window.onload = function() {
+        back_home = true;
+      }
+      
       function menu() {
         const menuButton = document.getElementById('menu');
-        const cancelButton = document.getElementById('cancel');
-        const back_home = document.getElementById("back_home");
+        const cancelButton = document.getElementById('cancel')
         menuButton.style.display = 'none'; // メニューボタンを非表示にする
         cancelButton.style.display = 'block'; // キャンセルボタンを表示する
-        back_home.disabled = true;
+        back_home = false;
       }
 
       function cancel() {
         const menuButton = document.getElementById('menu');
         const cancelButton = document.getElementById('cancel');
-        const back_home = document.getElementById("back_home");
         menuButton.style.display = 'block'; // メニューボタンを表示する
         cancelButton.style.display = 'none'; // キャンセルボタンを非表示にする
-        back_home.disabled = false;
+        back_home = true;
       }
 
       function back_home() {
-        window.location.href = 'https://nagamu.f5.si/';
+        if (back_home==true) {
+          window.location.href = 'https://nagamu.f5.si/';
+        }
       }
     </script>
   </body>
