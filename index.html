@@ -143,11 +143,13 @@
         <img src="cancel.svg" width="48" height="48">
       </span>
     </div>
-    <div class="HeaderImage">
-      <img src="https://nagamu.f5.si/nagamu-logo.jpeg" height="10px" class="HeaderLogo">
-    </div>
-    <div class="Header"></div>
-    <div class="HeaderText"><h3><strong>永　無教 公式サイト</strong></h3></div>
+    <span type="button" onclick="back_home()" id="back_home">
+      <div class="HeaderImage">
+        <img src="https://nagamu.f5.si/nagamu-logo.jpeg" height="10px" class="HeaderLogo">
+      </div>
+      <div class="Header"></div>
+      <div class="HeaderText"><h3><strong>永　無教 公式サイト</strong></h3></div>
+    </span>
     <div class="Contents">
       <h1>永　無教</h1>
       <p>これはコンテンツの例です。</p>
@@ -157,15 +159,23 @@
       function menu() {
         const menuButton = document.getElementById('menu');
         const cancelButton = document.getElementById('cancel');
+        const back_home = document.getElementById("back_home");
         menuButton.style.display = 'none'; // メニューボタンを非表示にする
         cancelButton.style.display = 'block'; // キャンセルボタンを表示する
+        back_home.disabled = true;
       }
 
       function cancel() {
         const menuButton = document.getElementById('menu');
         const cancelButton = document.getElementById('cancel');
+        const back_home = document.getElementById("back_home");
         menuButton.style.display = 'block'; // メニューボタンを表示する
         cancelButton.style.display = 'none'; // キャンセルボタンを非表示にする
+        back_home.disabled = false;
+      }
+
+      function back_home() {
+        window.location.href('https://nagamu.f5.si/');
       }
     </script>
   </body>
